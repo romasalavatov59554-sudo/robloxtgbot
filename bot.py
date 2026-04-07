@@ -27,6 +27,8 @@ async def _run_health_server() -> None:
 
     app = web.Application()
     app.router.add_get("/kaithheathcheck", health)
+    # Some Leapcell probes use a different spelling.
+    app.router.add_get("/kaithhealthcheck", health)
     app.router.add_get("/", health)
 
     runner = web.AppRunner(app)
